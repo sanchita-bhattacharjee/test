@@ -1,0 +1,225 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    background-image: url('./images/BG.png');
+    object-fit: fill;
+    background-size: 100% 100%;
+    
+}
+.container .top-div{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.container .top-div .litmus-paper{
+    height: 40vh;
+    width: 45vw;   
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+.papers > div {
+    transition: all 0.3s ease-in-out;
+}
+
+.container .top-div .litmus-paper .redlitmus{
+    position: absolute;
+    top: 16vh;
+    left: 11vw;
+}
+.container .top-div .litmus-paper .bluelitmus{
+    position: absolute;
+    top: 14vh;
+    right: 17.3vw;
+}
+.container .top-div .litmus-paper  img{
+    height: 13vh;
+    z-index: 1;
+}
+.container .top-div .litmus-paper .imgclip{
+    height: 20vh;
+    width: 100%;
+    z-index: 9;
+}
+.container .top-div .litmus-paper .red{
+    position:absolute;
+    top: 15vh;
+    right: 8.4vw;
+    height: 8vh;
+    width: 8vw;
+    background-color: rgba(240, 190, 143, 0.733);
+    padding: 10px;
+    border-radius: 10px;
+}
+.container .top-div .litmus-paper .blue{
+    position: absolute;
+    top: 20vh;
+    left: 13vw;
+    height: 8vh;
+    width: 8vw;
+    background-color: rgba(240, 190, 143, 0.733);
+    padding: 8px;
+    border-radius: 10px;
+}
+.container .top-div .textcontainer{
+    /* height: 40vh; */
+    width: 55vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.textcontainer .text{
+    font-size: 1.5vw;
+    background-color: rgba(0, 0, 0, 0.603);
+    color: white;
+    padding: 30px 10px;
+    border-radius: 50px 0px 0px 50px;
+}
+.container .bottom-div{
+    height: 60vh;
+    width: 100%;
+    background-image: url('./images/Lab_Beaker.png');
+    background-size: 100% 100% ;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+.container .bottom-div .beakers{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    padding-right: 38px;
+    gap: 31px;
+}
+.container .bottom-div .beakers .beaker{
+    padding: 20px;
+    height: 20vh;
+    width: 8vw;
+    border-radius: 10px 10px 10px 10px ;
+}
+.container .bottom-div .tables{
+    height: 30vh;
+    width: 100%;
+    background-image: url('./images/Table_BG.png');
+    background-size: 100% 100%;
+    
+    padding:0px 15px ;
+    
+}
+select{
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;   
+}
+.container .bottom-div .tables .table-fixer{
+    margin-top: 2vh;
+    height:26vh;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 1rem;
+    text-align: left;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+td input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        display: none;
+    }
+    tr {
+        margin-bottom: 1rem;
+    }
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem;
+    }
+    td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+}
+.secound-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.secound-container .controls{
+    height: 10vh;
+    width: 50%;
+    margin: auto;
+    background-color: rgb(244, 247, 246);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.secound-container .controls #check-btn{
+    height: 8vh;
+    width: 10vw;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsla(0, 1%, 32%, 0.301);
+}
+.secound-container .controls #result-btn{
+    height: 8vh;
+    width: 10vw;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsla(0, 1%, 32%, 0.301);
+    display: none;
+}
+.secound-container .controls #reset-btn{
+    height: 8vh;
+    width: 10vw;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsla(0, 1%, 32%, 0.301);
+    display: none;
+}

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Litmus Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-div">
+            <div class="litmus-paper">
+                <img class="imgclip" draggable="false" src="./images/Clips.png" alt="">
+                <div class="papers">
+                <div class="redlitmus" draggable="true"><img src="./images/Blue_litmus.png" alt=""></div>
+                <div class="bluelitmus" draggable="true"><img src="./images/Red_Litmus.png" alt=""></div>
+                </div>
+                <div class="blue">Blue litmus paper</div>
+                <div class="red">Red litmus paper</div>
+            </div>
+            <div class="textcontainer">
+                <div class="text"> <i>Drag and dip the blue and red litmus paper, one at a time , into solution 
+                    int the diffrent beakers . Make clear observations and type them in the table provided.</i>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-div">
+            <div class="beakers">
+            <div class="beaker" data-id="A" data-type="neutral"></div>
+            <div class="beaker" data-id="B" data-type="acidic"></div>
+            <div class="beaker" data-id="C" data-type="acidic"></div>
+            <div class="beaker"data-id="D" data-type="alkaline"></div>
+            <div class="beaker" data-id="E" data-type="alkaline"></div>
+            <div class="beaker" data-id="F" data-type="alkaline"></div>
+            <div class="beaker" data-id="G" data-type="acidic"></div>
+        </div>
+        <div class="tables">
+            <div class="table-fixer">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Substance</th>
+                        <th>Effect on Blue Litmus Paper</th>
+                        <th>Effect on Red Litmus Paper</th>
+                        <th>Is the substance acidic, alkaline, or neutral?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Beaker A (Water)</td>
+                        <td>
+                            <select id="blue-a">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-a" >
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-a">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Beaker B (Orange Juice)</td>
+                        <td>
+                            <select id="blue-b">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-b">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-b">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Beaker C (Vinegar)</td>
+                        <td>
+                            <select id="blue-c">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-c">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-c">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Beaker D (Tea)</td>
+                        <td>
+                            <select id="blue-d">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-d">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-d">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Beaker E (Dilute Liquid Soap)</td>
+                        <td>
+                            <select id="blue-e">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-e">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-e">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Beaker F (Dilute Sodium Hydroxide)</td>
+                        <td>
+                            <select id="blue-f">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-f">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-f">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Beaker G (Dilute Hydrochloric Acid)</td>
+                        <td>
+                            <select id="blue-g">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="red-g">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="turns red">Turns Red</option>
+                                <option value="turns blue">Turns Blue</option>
+                                <option value="turns pink">Turns Pink</option>
+                                <option value="no change">No Change</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="type-g">
+                                <option value="SELECT">--SELECT--</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Acidic">Acidic</option>
+                                <option value="Alkaline">Alkaline</option>
+                            </select>
+                        </td>
+                    </tr>
+                    
+                </tbody>        
+            </table>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="secound-container">
+        <div class="controls">
+            <button id="check-btn">Check</button>
+            <button id="result-btn">Show Result</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <table id="correct-answers-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Substance</th>
+                    <th>Effect on Blue Litmus Paper</th>
+                    <th>Effect on Red Litmus Paper</th>
+                    <th>Is the substance acidic, alkaline, or neutral?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Beaker A (Water)</td>
+                    <td>No Change</td>
+                    <td>No Change</td>
+                    <td>Neutral</td>
+                </tr>
+                <tr>
+                    <td>Beaker B (Orange Juice)</td>
+                    <td>Turns Red</td>
+                    <td>No Change</td>
+                    <td>Acidic</td>
+                </tr>
+                <tr>
+                    <td>Beaker C (Vinegar)</td>
+                    <td>Turns Red</td>
+                    <td>No Change</td>
+                    <td>Acidic</td>
+                </tr>
+                <tr>
+                    <td>Beaker D (Tea)</td>
+                    <td>No Change</td>
+                    <td>No Change</td>
+                    <td>alkaline</td>
+                </tr>
+                <tr>
+                    <td>Beaker E (Dilute Soap)</td>
+                    <td>No Change</td>
+                    <td>Turns Blue</td>
+                    <td>Alkaline</td>
+                </tr>
+                <tr>
+                    <td>Beaker F (Dilute Sodium Hydroxide)</td>
+                    <td>No Change</td>
+                    <td>Turns Blue</td>
+                    <td>Alkaline</td>
+                </tr>
+                <tr>
+                    <td>Beaker G (Dilute HCl)</td>
+                    <td>Turns Red</td>
+                    <td>No Change</td>
+                    <td>Acidic</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <script src="app.js"></script>
+</html>
