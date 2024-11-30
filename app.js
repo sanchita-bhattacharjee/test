@@ -58,13 +58,13 @@ beakers.forEach(beaker => {
         let newImageSrc = originalImageSrc;
 
         // Change image source based on conditions
-        if (draggedImg.src.includes('red_litmus.png') && type === 'acidic' && beakerId === 'g') {
+        if (draggedImg.src.includes('Red_Litmus.png') && type === 'acidic' && beakerId === 'g') {
             newImageSrc = './images/Blue_to_red_Litmus.png';
-        } else if (draggedImg.src.includes('blue_Litmus.png') && type === 'acidic' && beakerId === 'g') {
+        } else if (draggedImg.src.includes('Blue_litmus.png') && type === 'acidic' && beakerId === 'g') {
             newImageSrc = './images/Blue_to_red_Litmus.png'; // Change this line to turn blue litmus red in acid beaker with ID 'g'
-        } else if (draggedImg.src.includes('blue_Litmus.png') && type === 'acidic') {
+        } else if (draggedImg.src.includes('Blue_litmus.png') && type === 'acidic') {
             newImageSrc = './images/Blue_to_pink_Litmus.png';
-        } else if (draggedImg.src.includes('red_litmus.png') && type === 'alkaline') {
+        } else if (draggedImg.src.includes('Red_Litmus.png') && type === 'alkaline') {
             newImageSrc = './images/Red_to_blue_Litmus.png';
         }
         
