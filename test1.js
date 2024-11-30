@@ -1,4 +1,4 @@
-const result = document.getElementById('result-btn')
+const result = document.getElementById('result-btn');
 const checkBtn = document.getElementById('check-btn');
 const resetBtn = document.getElementById('reset-btn');
 const check = document.getElementById('correct-answers-table');
@@ -37,6 +37,9 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // Check
 // Add event listeners for both touch and mouse events
 litmusPapers.forEach(paper => {
     const handleDragStart = (event) => {
+        // Only handle for non-mobile (desktop) devices
+        if (isMobile) return; // Skip drag for mobile devices
+
         draggedItem = paper;
         originalPosition = { x: paper.offsetLeft, y: paper.offsetTop }; // Save original position
         setTimeout(() => {
@@ -45,21 +48,27 @@ litmusPapers.forEach(paper => {
     };
 
     const handleDragEnd = () => {
+        if (isMobile) return; // Skip drag end for mobile
+
         paper.style.opacity = '1'; // Restore visibility when drag ends
+        draggedItem = null;
     };
 
     const handleTouchStart = (event) => {
-        // Prevent default behavior to avoid interference
-        event.preventDefault();
+        event.preventDefault();  // Prevent default behavior (copying the image)
+        
         draggedItem = paper;
         originalPosition = { x: paper.offsetLeft, y: paper.offsetTop }; // Save original position
+
         setTimeout(() => {
             paper.style.opacity = '0'; // Make it disappear temporarily while dragging
         }, 0);
     };
 
     const handleTouchMove = (event) => {
-        const touch = event.touches[0];
+        event.preventDefault();  // Prevent page scroll or any other default behavior
+        
+        const touch = event.touches[0];  // Get the first touch point
         if (draggedItem) {
             draggedItem.style.position = 'absolute';
             draggedItem.style.left = `${touch.pageX - draggedItem.offsetWidth / 2}px`;
@@ -68,21 +77,24 @@ litmusPapers.forEach(paper => {
     };
 
     const handleTouchEnd = () => {
-        // Logic for touch end (e.g., drop logic can go here)
+        if (!draggedItem) return;
+
+        // Handle the drop behavior, or reset the item if it was not dropped correctly
         draggedItem.style.opacity = '1'; // Restore visibility when dragging ends
         draggedItem = null;
     };
 
     if (isMobile) {
+        // Add mobile-specific touch event listeners
         paper.addEventListener('touchstart', handleTouchStart);
         paper.addEventListener('touchmove', handleTouchMove);
         paper.addEventListener('touchend', handleTouchEnd);
     } else {
+        // Add desktop drag event listeners
         paper.addEventListener('dragstart', handleDragStart);
         paper.addEventListener('dragend', handleDragEnd);
     }
 });
-
 
 beakers.forEach(beaker => {
     const handleDrop = () => {
@@ -132,46 +144,4 @@ beakers.forEach(beaker => {
     if (isMobile) {
         beaker.addEventListener('touchend', handleDrop);
     }
-});
-
-
-checkBtn.addEventListener("click", () => {
-    // Get all the selects
-    const selects = document.querySelectorAll("select");
-    result.style.display = 'block';
-    resetBtn.style.display = 'block';
-
-    // Check each select against the correct answers
-    selects.forEach((select) => {
-        const id = select.id;
-        const userAnswer = select.value.toLowerCase();
-        const correctAnswer = correctAnswers[id].toLowerCase();
-
-        // Add feedback
-        if (userAnswer === "select") {
-            select.style.border = "2px solid orange"; // Unselected option
-        } else if (userAnswer === correctAnswer) {
-            select.style.border = "2px solid green"; // Correct answer
-        } else {
-            select.style.border = "2px solid red"; // Incorrect answer
-        }
-    });
-});
-
-result.addEventListener('click', () => {
-    check.style.display = 'block';
-    resetBtn.style.display = 'block';
-    result.style.display = 'none';
-});
-
-// Reset button functionality
-resetBtn.addEventListener("click", () => {
-    resetBtn.style.display = 'none';
-    check.style.display = "none";
-    result.style.display = 'none';
-    const selects = document.querySelectorAll("select");
-    selects.forEach((select) => {
-        select.style.border = "1px solid #ccc"; // Reset border style
-        select.value = "SELECT"; // Reset dropdown
-    });
 });
