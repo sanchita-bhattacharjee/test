@@ -162,3 +162,11 @@ resetBtn.addEventListener("click", () => {
         select.value = "SELECT"; // Reset dropdown
     });
 });
+const userAgent = navigator.userAgent.toLowerCase();
+
+if (userAgent.includes('iphone') || userAgent.includes('ipad') || userAgent.includes('android')) {
+    console.log("Mobile device detected");
+} else {
+    console.log("Desktop device detected");
+}
+
