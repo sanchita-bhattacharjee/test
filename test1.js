@@ -36,26 +36,8 @@ const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // Check
 
 // Add event listeners for both touch and mouse events
 litmusPapers.forEach(paper => {
-    const handleDragStart = (event) => {
-        // Only handle for non-mobile (desktop) devices
-        if (isMobile) return; // Skip drag for mobile devices
-
-        draggedItem = paper;
-        originalPosition = { x: paper.offsetLeft, y: paper.offsetTop }; // Save original position
-        setTimeout(() => {
-            paper.style.opacity = '0'; // Make it disappear temporarily while dragging
-        }, 0);
-    };
-
-    const handleDragEnd = () => {
-        if (isMobile) return; // Skip drag end for mobile
-
-        paper.style.opacity = '1'; // Restore visibility when drag ends
-        draggedItem = null;
-    };
-
     const handleTouchStart = (event) => {
-        event.preventDefault();  // Prevent default behavior (copying the image)
+        event.preventDefault(); // Prevent default behavior (copying the image)
         
         draggedItem = paper;
         originalPosition = { x: paper.offsetLeft, y: paper.offsetTop }; // Save original position
@@ -84,13 +66,30 @@ litmusPapers.forEach(paper => {
         draggedItem = null;
     };
 
+    const handleDragStart = (event) => {
+        if (isMobile) return; // Skip drag for mobile
+
+        draggedItem = paper;
+        originalPosition = { x: paper.offsetLeft, y: paper.offsetTop }; // Save original position
+        setTimeout(() => {
+            paper.style.opacity = '0'; // Make it disappear temporarily while dragging
+        }, 0);
+    };
+
+    const handleDragEnd = () => {
+        if (isMobile) return; // Skip drag end for mobile
+
+        paper.style.opacity = '1'; // Restore visibility when drag ends
+        draggedItem = null;
+    };
+
     if (isMobile) {
-        // Add mobile-specific touch event listeners
+        // Mobile-specific touch events for dragging
         paper.addEventListener('touchstart', handleTouchStart);
         paper.addEventListener('touchmove', handleTouchMove);
         paper.addEventListener('touchend', handleTouchEnd);
     } else {
-        // Add desktop drag event listeners
+        // Desktop-specific mouse events for dragging
         paper.addEventListener('dragstart', handleDragStart);
         paper.addEventListener('dragend', handleDragEnd);
     }
