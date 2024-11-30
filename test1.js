@@ -61,8 +61,49 @@ litmusPapers.forEach(paper => {
     const handleTouchEnd = () => {
         if (!draggedItem) return;
 
-        // Handle the drop behavior, or reset the item if it was not dropped correctly
+        // Handle the drop behavior
         draggedItem.style.opacity = '1'; // Restore visibility when dragging ends
+        
+        let droppedInBeaker = false;
+
+        beakers.forEach(beaker => {
+            const beakerRect = beaker.getBoundingClientRect();
+            const paperRect = draggedItem.getBoundingClientRect();
+
+            // Check if the dragged item is within the beaker's bounds
+            if (paperRect.left > beakerRect.left && paperRect.right < beakerRect.right && paperRect.top > beakerRect.top && paperRect.bottom < beakerRect.bottom) {
+                droppedInBeaker = true;
+                
+                const type = beaker.dataset.type; // Beaker type (acidic, alkaline, neutral)
+                const beakerId = beaker.dataset.id.toLowerCase(); // Beaker ID
+                const draggedImg = draggedItem.querySelector('img');
+                const originalImageSrc = draggedImg.src;
+                let newImageSrc = originalImageSrc;
+
+                // Change image source based on conditions
+                if (draggedImg.src.includes('Red_Litmus.png') && type === 'acidic' && beakerId === 'g') {
+                    newImageSrc = './images/Blue_to_red_Litmus.png';
+                } else if (draggedImg.src.includes('Blue_litmus.png') && type === 'acidic' && beakerId === 'g') {
+                    newImageSrc = './images/Blue_to_red_Litmus.png'; // Change this line to turn blue litmus red in acid beaker with ID 'g'
+                } else if (draggedImg.src.includes('Blue_litmus.png') && type === 'acidic') {
+                    newImageSrc = './images/Blue_to_pink_Litmus.png';
+                } else if (draggedImg.src.includes('Red_Litmus.png') && type === 'alkaline') {
+                    newImageSrc = './images/Red_to_blue_Litmus.png';
+                }
+
+                // Change image source
+                draggedImg.src = newImageSrc;
+            }
+        });
+
+        // If it wasn't dropped on a valid beaker, reset the position
+        if (!droppedInBeaker) {
+            setTimeout(() => {
+                draggedItem.style.left = `${originalPosition.x}px`;
+                draggedItem.style.top = `${originalPosition.y}px`;
+            }, 300);
+        }
+
         draggedItem = null;
     };
 
